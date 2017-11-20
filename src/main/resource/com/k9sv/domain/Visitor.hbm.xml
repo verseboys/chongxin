@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping default-lazy="false" package="com.k9sv.domain.pojo">
+
+	<class name="Visitor" table="visitor" dynamic-update="true"
+		dynamic-insert="true">
+
+		<id name="id" type="int" length="11" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<property name="type" type="int" length="11" not-null="true" />
+		<property name="vid" type="int" length="11" not-null="true" />
+		<property name="uid" type="int" length="11" not-null="true" />
+		<property name="created" column="created" type="java.util.Date" />
+		<many-to-one name="profile" class="Profile" column="uid"
+			insert="false" update="false" lazy="false" not-found="ignore" />
+	</class>
+
+</hibernate-mapping>

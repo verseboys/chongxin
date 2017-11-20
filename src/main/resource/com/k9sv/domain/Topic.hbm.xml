@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping default-lazy="false">
+
+	<class name="com.k9sv.domain.pojo.Topic" table="topic">
+
+		<id name="id" type="int" length="11" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<property name="type" type="int" not-null="true" />
+		<property name="title" type="string" length="90" not-null="true" />
+		<property name="content" type="text" not-null="true" />
+		<property name="uid" type="int" not-null="true" />
+		<property name="fid" type="int" not-null="true" />
+		<property name="pid" type="int" not-null="true" />
+		<property name="viewed" type="int" not-null="true" />
+		<property name="replied" type="int" not-null="true" />
+		<property name="topest" type="int" not-null="true" />
+		<property name="best" type="int" not-null="true" />
+		<property name="lastUid" column="last_uid" type="int"
+			not-null="true" />
+		<property name="lastReplied" column="last_replied" type="java.util.Date" />
+		<property name="deleted" type="int" not-null="true" />
+		<property name="created" column="created" type="java.util.Date" />
+		<property name="updated" column="updated" type="java.util.Date" />
+		<many-to-one name="profile" class="com.k9sv.domain.pojo.Profile"
+			column="uid" insert="false" update="false" lazy="false" not-found="ignore" />
+		<many-to-one name="lastReplyProfile" class="com.k9sv.domain.pojo.Profile"
+			column="last_uid" insert="false" update="false" lazy="false"
+			not-found="ignore" />
+	</class>
+
+</hibernate-mapping>

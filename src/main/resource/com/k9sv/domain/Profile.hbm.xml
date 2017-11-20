@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping     
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"     
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.k9sv.domain.pojo">
+	<class name="Profile" table="profile" lazy="false"
+		dynamic-update="true" dynamic-insert="true">
+		<cache usage="read-write" />
+		<id name="id" column="id" type="int">
+			<generator class="foreign">
+				<param name="property">account</param>
+			</generator>
+		</id>
+		<one-to-one name="account" class="Account" />
+		<property name="sex" column="sex" type="int" />
+		<property name="trueName" column="truename" type="java.lang.String" />
+		<property name="nickName" column="nickname" type="java.lang.String" />
+		<property name="email" column="email" type="java.lang.String" />
+		<property name="mobile" column="mobile" type="java.lang.String" />
+		<property name="telephone" column="telephone" type="java.lang.String" />
+		<property name="qq" column="qq" type="java.lang.String" />
+		<property name="avatar" column="avatar" type="java.lang.String" />
+		<property name="feedsCount" column="feeds_Count" type="int" />
+		<property name="topicsCount" column="topics_Count" type="int" />
+		<property name="friendsCount" column="friends_Count" type="int" />
+		<property name="viewCount" column="view_Count" type="int" />
+		<property name="level" column="level" type="int" />
+		<property name="score" column="score" type="int" />
+		<property name="prestige" column="prestige" type="int" />
+		<property name="goldCount" column="gold_Count" type="int" />
+		<property name="domain" column="domain" type="java.lang.String" />
+		<property name="intro" column="intro" type="java.lang.String" />
+
+		<property name="company" column="company" type="java.lang.String" />
+		<property name="address" column="address" type="java.lang.String" />
+		<property name="IDcard" column="idcard" type="java.lang.String" />
+		<property name="cityId" column="city_id" type="int" />
+		<property name="latitude" column="latitude" type="java.lang.Float" />
+		<property name="longtitude" column="longtitude" type="java.lang.Float" />
+		<property name="roleId" column="role_id" type="int" />
+		<property name="birthday" column="birthday" type="java.util.Date" />
+		<property name="topicPic" column="topic_pic" type="java.lang.String" />
+		<property name="isCity" column="is_city" type="int" />
+		<property name="fromId" column="from_id" type="int" />
+		<many-to-one name="city" column="city_id" class="City"
+			insert="false" update="false" not-found="ignore" />
+		<many-to-one name="role" column="role_id" class="Role"
+			insert="false" update="false" not-found="ignore" />
+	</class>
+</hibernate-mapping>

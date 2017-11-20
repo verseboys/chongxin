@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.k9sv.domain.pojo.Friend" table="friend">
+		<id name="id" type="int">
+			<column name="id" />
+			<generator class="native" />
+		</id>
+		<property name="uid" type="int">
+			<column name="uid">
+				<comment>用户id</comment>
+			</column>
+		</property>
+		<property name="fid" type="int">
+			<column name="fid" length="11" not-null="true">
+				<comment>好友id</comment>
+			</column>
+		</property>
+		<property name="status" type="int">
+			<column name="status" length="11" not-null="true">
+				<comment>状态(0关注，1互相关注)</comment>
+			</column>
+		</property>
+		<property name="created" type="java.util.Date">
+			<column name="created" length="19">
+				<comment>关注时间</comment>
+			</column>
+		</property>
+		<many-to-one name="profile" column="uid"
+			class="com.k9sv.domain.pojo.Profile" insert="false" update="false"
+			not-found="ignore" />
+		<many-to-one name="fProfile" column="fid"
+			class="com.k9sv.domain.pojo.Profile" insert="false" update="false"
+			not-found="ignore" />
+	</class>
+</hibernate-mapping>

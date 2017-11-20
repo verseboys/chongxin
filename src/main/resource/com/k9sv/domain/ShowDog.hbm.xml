@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping     
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"     
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.k9sv.domain.pojo">
+	<class name="ShowDog" table="show_dogs" lazy="false" dynamic-update="true">
+		<cache usage="read-write"/>
+		<id name="id" column="id"  type="int" unsaved-value="null">
+			<generator class="native"></generator>
+		</id>
+		<property name="dogId" column="dog_id" type="java.lang.String" update="false"/><!-- 参赛犬只 -->
+		<property name="showId" column="show_id" type="java.lang.Integer" update="false"/><!-- 活动id -->
+		<property name="avatar" column="avatar" type="java.lang.String" /><!-- 犬只头像 -->
+		<property name="content" column="content" type="java.lang.String" /><!-- 介绍 -->
+		<property name="video" column="video" type="java.lang.String" /><!-- 视频 -->
+		<property name="status" column="status" type="java.lang.Integer" insert="false"/><!-- 状态 0 报名，1 参赛，-1 禁止除名 -->
+		
+		<property name="created" column="created" type="java.util.Date" update="false"/><!--  -->
+		<property name="colorScore" column="color_score" type="java.lang.Integer" insert="false"/><!-- 毛色得分 -->
+		<property name="sportScore" column="sport_score" type="java.lang.Integer" insert="false"/><!-- 动态得分 -->
+		<property name="boneScore" column="bone_score" type="java.lang.Integer" insert="false"/><!-- 骨量得分 -->
+		<property name="bodyScore" column="body_score" type="java.lang.Integer" insert="false"/><!-- 体形得分 -->
+		<property name="headScore" column="head_score" type="java.lang.Integer" insert="false"/><!-- 头版得分 -->
+		<property name="cleverScore" column="clever_score" type="java.lang.Integer" insert="false"/><!-- 神经类型得分 -->
+		<many-to-one name="dog" class="Dog" column="dog_id" lazy="false" not-found="ignore" insert="false" update="false"/>
+	</class>
+</hibernate-mapping>

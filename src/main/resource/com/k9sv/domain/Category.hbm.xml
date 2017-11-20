@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping default-lazy="false">
+
+	<class name="com.k9sv.domain.pojo.Category" table="category">
+
+		<id name="id" type="int" length="11" unsaved-value="0">
+		  <generator class="native"/>
+		</id>
+		<property name="name" type="string" length="30" not-null="true"/>
+		<property name="pid" type="int" length="11" not-null="true"/>
+		<property name="forumId" column="forum_id" type="int" length="11" not-null="true"/>
+		<property name="content" type="string"/>
+	</class> 
+
+</hibernate-mapping>

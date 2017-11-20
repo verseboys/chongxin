@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping default-lazy="false">
+
+	<class name="com.k9sv.domain.pojo.Forum" table="forum"  dynamic-update="true" dynamic-insert="true">
+
+		<id name="id" type="int" length="11" unsaved-value="0">
+		  <generator class="native"/>
+		</id>
+		<property name="title" type="string" length="30" not-null="true"/>
+		<property name="intro" type="string" length="500" not-null="true"/>
+		<property name="logo" type="string" length="50" not-null="true"/>
+		<property name="pid" type="int" length="11" not-null="true"/>
+		<property name="topics" type="int" not-null="true"/>
+		<property name="viewed" type="int" not-null="true"/>
+		<property name="todayTopics" column="today_topics" type="int" not-null="true"/>
+		<property name="enable" type="boolean" not-null="true"/>
+		<property name="orders" type="int" not-null="true"/>
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+
+	<class name="com.k9sv.domain.pojo.Answer" table="answer">
+
+		<id name="id" type="int">
+			<column name="id" />
+			<generator class="native" />
+		</id>
+		<property name="uid" column="uid" type="int" length="11"
+			not-null="true" />
+		<property name="toUid" column="to_uid" type="int" length="11"
+			not-null="true" />
+		<property name="askId" column="ask_id" type="int" length="11"
+			not-null="true" />
+		<property name="status" column="status" type="int" length="11" />
+		<property name="content" column="content" type="java.lang.String" /><!-- 
+			内容 -->
+		<property name="created" column="created" type="java.lang.String" /><!-- 
+			发布时间 -->
+		<property name="deleted" column="deleted" type="int" length="11" />
+		<many-to-one name="profile" column="uid"
+			class="com.k9sv.domain.pojo.Profile" insert="false" update="false"
+			lazy="false" not-null="true" not-found="ignore"></many-to-one>
+
+		<many-to-one name="toProfile" column="to_uid"
+			class="com.k9sv.domain.pojo.Profile" insert="false" update="false"
+			not-found="ignore" />
+		<!-- <many-to-one name="toProfile" column="to_uid" class="com.k9sv.domain.pojo.Profile" 
+			insert="false" update="false" lazy="false" not-null="true"></many-to-one> -->
+
+		<set name="answerPics" inverse="true" lazy="false" cascade="delete"
+			order-by="id asc" table="answer_pic">
+			<key column="aid"></key>
+			<one-to-many class="com.k9sv.domain.pojo.AnswerPic" />
+		</set>
+	</class>
+
+</hibernate-mapping>

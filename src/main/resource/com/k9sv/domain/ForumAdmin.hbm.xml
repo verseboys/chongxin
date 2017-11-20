@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping     
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"     
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.k9sv.domain.pojo">
+	<class name="ForumAdmin" table="forum_admin" lazy="false" dynamic-update="true">
+		<cache usage="read-write"/>
+		<id name="id" column="id" type="integer" unsaved-value="null">
+			<generator class="native"></generator>
+		</id>
+		<property name="uid" column="uid" type="java.lang.Integer" /><!-- 用户id -->
+		<property name="fid" column="fid" type="java.lang.Integer" /><!-- 论坛id -->
+		<many-to-one name="profile" class="Profile" column="uid" insert="false" update="false" lazy="false" not-found="ignore"/>
+	</class>
+</hibernate-mapping>

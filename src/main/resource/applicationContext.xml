@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:lang="http://www.springframework.org/schema/lang"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+           http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd
+           http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.0.xsd">
+	<task:annotation-driven />
+	<context:annotation-config />
+	<context:component-scan base-package="com.k9sv" />
+	<!-- <context:component-scan base-package="com.k9sv.web.filter" /> <context:component-scan 
+		base-package="com.k9sv.dao" /> <context:component-scan base-package="com.k9sv.service" 
+		/> <context:component-scan base-package="com.k9sv.web" /> <context:component-scan 
+		base-package="com.k9sv.security" /> -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="mappingLocations">
+			<list>
+				<value>classpath*:com/k9sv/domain/*.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties" ref="hibenateProperties" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
+	<!-- bean id="hibernateInterceptor" class="org.springframework.orm.hibernate4.HibernateInterceptor"> 
+		<property name="sessionFactory"> <ref bean="sessionFactory"/> </property> 
+		</bean> -->
+
+	<bean id="baseTxProxy"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		abstract="true">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="load*">PROPAGATION_REQUIRED</prop>
+				<prop key="stat*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED</prop>
+				<prop key="search*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="remove*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<!-- 指定哪些方法需要加入事务，这里懒惰一下全部加入，可以使用通配符来只加入需要的方法 -->
+			<tx:method name="*" propagation="REQUIRED" />
+			<tx:method name="get*" propagation="REQUIRED" />
+			<tx:method name="find*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+	<!-- 需要引入aop的命名空间 -->
+	<aop:config>
+		<!-- 切入点指明了在执行Service的所有方法时产生事务拦截操作 -->
+		<aop:pointcut id="daoMethods"
+			expression="execution(* com.k9sv.service.impl.*.*(..))" />
+		<!-- 定义了将采用何种拦截操作，这里引用到 txAdvice -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="daoMethods" />
+	</aop:config>
+	<!-- 需要引入tx的命名空间 -->
+	<!-- 这是事务通知操作，使用的事务管理器引用自 transactionManager -->
+
+
+	<!-- <bean id="userSessionFilterBean" class="com.welian.web.filter.UserSessionFilter"> 
+		<property name="onlineUserManager"> <ref bean="onlineUserManager"/> </property> 
+		</bean> <bean id="pojoManager" class="net.wocai.dao.impl.PojoManager"> <property 
+		name="sessionFactory"> <ref local="sessionFactory" /> </property> </bean> 
+		<bean id="pojoDaoManagerProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+		<property name="transactionManager"> <ref bean="transactionManager" /> </property> 
+		<property name="target"> <ref local="pojoManager" /> </property> <property 
+		name="transactionAttributes"> <props> <prop key="insert*">PROPAGATION_REQUIRED</prop> 
+		<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop> </props> </property> 
+		</bean> -->
+	<!-- <bean id="authenticationProvider" class="com.k9sv.web.security.LoginAuthenticationProvider"> 
+		<property name="userManager" ref="userManager" /> </bean> <bean id="multipartResolver" 
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" 
+		p:defaultEncoding="utf-8" /> -->
+</beans>

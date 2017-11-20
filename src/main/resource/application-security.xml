@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+					http://www.springframework.org/schema/beans/spring-beans.xsd
+					http://www.springframework.org/schema/security
+					http://www.springframework.org/schema/security/spring-security.xsd">
+	
+	 <security:http pattern="/server/**" security="none" />
+	 <security:http pattern="/member/loginaction" security="none" />
+	 
+	<security:http auto-config="true" use-expressions="true">               
+		<security:intercept-url pattern="/ui/**"   access="hasRole('ROLE_ANONYMOUS')" />
+		<security:intercept-url pattern="/assets/**"   access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/server/**/*"   access="hasRole('ROLE_ANONYMOUS')" />
+		<security:intercept-url pattern="/member/login"   access="hasRole('ROLE_ANONYMOUS')" />
+		<security:intercept-url pattern="/member/loginaction"   access="hasRole('ROLE_ANONYMOUS')" />
+	
+		<security:access-denied-handler error-page="/error"/>
+		<security:remember-me/>
+		<security:logout logout-success-url="/" />
+		
+        <security:form-login login-page="/login.html" default-target-url="/" authentication-failure-url="/login.html?error=1" always-use-default-target="true" /> 
+        
+	</security:http> 
+		
+	<bean id="loginPageEntryPoint" class="com.k9sv.security.LoginUrlEntryPoint"></bean>
+
+	<security:authentication-manager>        
+		<security:authentication-provider ref="authenticationProvider"/>
+	</security:authentication-manager>
+	
+	<bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+		<property name="hideUserNotFoundExceptions" value="false" />
+		
+  
+	</bean>
+<!-- 
+<property name="userDetailsService" ref="userDetailsServiceImpl" />
+	<bean id="userDetailsServiceImpl" class="com.k9sv.security.UserDetailsServiceImpl"></bean>
+ -->
+</beans>

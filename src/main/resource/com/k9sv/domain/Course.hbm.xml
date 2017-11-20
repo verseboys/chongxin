@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping default-lazy="false">
+
+	<class name="com.k9sv.domain.pojo.Course" table="course">
+
+		<id name="id" type="int" length="11" unsaved-value="0">
+		  <generator class="native"/>
+		</id>
+		<property name="title" type="string" length="90" not-null="true"/>
+		<property name="number" type="int"/>
+		<property name="content" type="string" length="190"/>
+		<property name="video" type="string" length="290"/>
+		<property name="viewed" type="int"/>
+	</class>
+
+</hibernate-mapping>

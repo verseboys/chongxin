@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping default-lazy="false" package="com.k9sv.domain.pojo">
+
+	<class name="OnlineUser" table="online_user" dynamic-update="true"
+		dynamic-insert="true">
+		<id name="id" type="java.lang.String">
+			<column name="id" length="100" />
+			<generator class="assigned" />
+		</id>
+		<property name="uid" column="uid" type="int" length="11"
+			not-null="true" />
+		<property name="updated" column="updated" type="java.util.Date" />
+		<property name="platform" type="string" length="30" />
+		<many-to-one name="account" column="uid" class="Account"
+			insert="false" update="false" lazy="false" outer-join="auto"
+			not-null="true" not-found="ignore"></many-to-one>
+	</class>
+
+</hibernate-mapping>

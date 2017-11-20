@@ -1,0 +1,162 @@
+html {
+	font-size: 12px;
+	color: #666;
+}
+body {
+	width: 100%;
+	font-size: 1em;
+	font-family: Microsoft YaHei,STHeiti STXihei,Microsoft JhengHei,Helvetica,Tohoma,Arial;
+	margin: 0px;
+	padding:0px;     
+}
+#header {
+	width:100%;
+	font-size: 16px;
+	position: fixed;
+	background: #fff;
+	text-align: center;
+	padding: 0px;
+	margin-top:0;
+	height:80px;
+}
+.inner {
+	margin: 0 auto;
+	width: 1080px;
+	clear: both;
+	padding:0px; 	
+}
+.logo{
+	float: left;
+	width: 176px;
+	height:67px;
+	border:0px solid #666;
+	margin-top:5px;
+	background:url("/assets/img/logo.png");
+}
+.header-menu{
+	float:right;
+	font-size: 16px;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+.menu-list-dh {
+	float: left;
+}
+.ly-prod {
+	height: 70px;
+	line-height: 70px;
+	text-decoration: none;
+	color: #666;
+	margin-left: 42px;
+	display: inline-block;
+	border:0px solid red;
+}
+.all{
+	width:100%;
+	background:#F2F2F2;
+}
+.content{
+	height:100%;
+	width:1080px;
+	margin: 0 auto;
+}
+.select01 {
+	padding-top: 80px;
+}
+.banner{
+	height:150px;
+}
+.nav{
+	height:50px;
+	background:#e95d5c;
+}
+.nav-menu{
+	float:lefe;
+	font-size: 16px;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+.menu-list-nav {
+	float: left;
+}
+.nav-prod {
+	height: 50px;
+	line-height: 50px;
+	text-decoration: none;
+	color: #FFF;
+	margin-left: 42px;
+}
+.details{
+	margin-top:40px;
+	height:1500px;
+}
+.zxzx{
+	width:300px;
+	height:290px;
+	float:left;
+	background:#FFF;
+}
+.zxzx >div{
+	width:200px;
+	height:195px;
+	margin-left:50px;
+	margin-top:30px;
+}
+.qsjs{
+	width:758px;
+	float:right;
+	background:#FFF;
+}
+.fzzx{
+	font-size:20px;
+	font-weight:bold;
+	text-align:center;
+}
+.zxxq{
+	margin-top:30px;
+	font-size:14px;
+}
+.zhixun{
+	width:136px;
+	height:35px;
+	text-align:center;
+	padding-top:5px;
+	background:#21b75d;
+	margin-top:30px;
+	border-radius: 20px;
+	color:#FFF;
+	font-size:20px;
+}
+.top{
+	height:30px;
+	background:#EDE3E3;
+	padding:10px;
+	font-size:20px;
+}
+.qs-content{
+	height:230px;
+	font-size:14px;
+	padding-top:20px;
+}
+.qs-content p{
+	width:700px;
+	margin-left:30px;
+}
+.qs-img{
+	width:720px;
+	height:400px;
+	margin-left:20px;
+}
+.backg{
+	height:20px;
+	margin-top:20px;
+	background:#F2F2F2;
+}
+.dog-img{
+	padding:19px;
+}
+.dog-img img{
+	margin:18px;
+}

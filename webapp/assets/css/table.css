@@ -1,0 +1,23 @@
+table.table01 {
+	color: #333333;
+	border-width: 1px;
+	border-color: #e5e5e5;
+	border-collapse: collapse; /*用于表格属性, 表示表格的两边框合并为一条*/
+}
+
+table.table01 th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #e5e5e5;
+	background-color: #dedede;
+}
+
+table.table01 td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #e5e5e5;
+	background-color: #ffffff;
+	line-height: 26px;
+}

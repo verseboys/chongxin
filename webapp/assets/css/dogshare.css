@@ -1,0 +1,173 @@
+html {
+	font-size: 0.75em;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	max-width: 1080px;
+	background: #F2F2F2;
+	max-width: 1080px;
+}
+
+.bg {
+	position: relative;
+	margin: 0 auto;
+	height: 50%;
+}
+
+.bg .first {
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+}
+
+.bg .second {
+	position: absolute;
+	width: 29%;
+	z-index: 2;
+	left: 33.5%;
+	top: 15%;
+}
+
+.bg .third {
+	position: absolute;
+	width: 26%;
+	z-index: 3;
+	left: 35%;
+	top: 17.4%;
+	border-radius: 50%;
+}
+
+.bg>div {
+	position: absolute;
+	width: 40%;
+	height: 10%;
+	z-index: 4;
+	left: 28%;
+	top: 58%;
+	color: #ffffff;
+	font-size: 1.2em;
+	text-align: center;
+}
+
+}
+.all {
+	width: 100%;
+	height: 50%;
+	margin: 0 auto;
+}
+
+.records {
+	width: 80%;
+	height:80%;
+	margin: 0 auto;
+	padding-bottom:20%;
+}
+.record {
+	width:100%;
+	height:50%;
+	margin-top:3%;
+}
+.time{
+	width:100%;
+	height:10%;
+}
+.time img{
+	 width:8%;
+	 height:100%;
+}
+.time div{
+	 width:88%;
+	 height:90%;
+	 float:right;
+	 padding-top:2%;
+}
+.kuang{
+	width:95%;
+	height:90%;
+	margin-top:1%;
+	background:url(/assets/img/dogyimiao.png);
+	background-size:100% 100%;
+	padding-top:3%;
+	padding-bottom:3%;
+}
+.classify{
+	width:10%;
+	height:80%;
+}
+.kuang div{
+	width:85%;
+	height:80%;
+	float:right;
+	padding-top:2%;
+}
+.classifyname{
+	font-size:1.5em;
+	margin-right:5%;
+}
+.feedimg{
+	width:20%;
+	height:80%;
+	margin-left:10%;
+}
+
+#bottom {
+	position: fixed;
+	width: 100%;
+	height: 10%;
+	z-index: 1000;
+	bottom: 0;
+	background: #FFF;
+}
+
+.bot-left {
+	float: left;
+	width: 10%;
+	margin-top: 2%;
+	margin-left: 4%;
+}
+
+.bot-left img {
+	width: 100%;
+}
+
+.bot-left2 {
+	float: left;
+	width: 33%;
+	height: 25%;
+	margin-top: 3%;
+	margin-left: 3%;
+}
+
+.chongxin {
+	width: 20%;
+}
+
+.chongxin img {
+	width: 100%;
+}
+
+.bot-left3 {
+	float: right;
+	width: 30%;
+	height: 70%;
+	margin-top: 2%;
+	margin-right: 5%;
+}
+
+.download {
+	width: 100%;
+	height: 100%;
+	font-size: 1em;
+	text-align: center;
+	color: #FFF;
+}
+
+.download img {
+	width: 100%;
+	height: 100%;
+}

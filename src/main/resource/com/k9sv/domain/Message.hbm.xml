@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.k9sv.domain.pojo">
+	<class name="Message" table="message">
+		<id name="id" type="int">
+			<column name="id" />
+			<generator class="native" />
+		</id>
+		<property name="toUid" type="int">
+			<column name="to_uid">
+				<comment>用户id</comment>
+			</column>
+		</property>
+		<property name="fromUid" type="int">
+			<column name="from_uid" length="11" not-null="true">
+				<comment>好友id</comment>
+			</column>
+		</property>
+		<property name="status" type="int">
+			<column name="status" length="11" not-null="true">
+				<comment>状态(0未读，1已读 2 删除)</comment>
+			</column>
+		</property>
+		<property name="content" type="text" not-null="true" />
+		<property name="created" type="java.util.Date">
+			<column name="created" length="19">
+				<comment>关注时间</comment>
+			</column>
+		</property>
+		<property name="type" type="int">
+			<column name="type" length="11">
+				<comment>消息类型 (0 文字，1图片，2语音，10卡片)</comment>
+			</column>
+		</property>
+		<many-to-one name="profile" class="Profile" column="from_uid"
+			insert="false" update="false" lazy="false" not-found="ignore" />
+		<many-to-one name="toProfile" class="Profile" column="to_uid"
+			insert="false" update="false" lazy="false" not-found="ignore" />
+	</class>
+</hibernate-mapping>

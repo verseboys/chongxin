@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping     
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"     
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.k9sv.domain.pojo">
+	<class name="DogComment" table="dog_comment" lazy="false"
+		dynamic-update="true" dynamic-insert="true">
+		<cache usage="read-write" />
+		<id name="id" column="id" type="int" unsaved-value="null">
+			<generator class="native"></generator>
+		</id>
+		<property name="dogId" column="dog_id" type="int" /><!-- -->
+		<property name="uid" column="uid" type="int" /><!-- -->
+		<property name="zan" column="zan" type="int" /><!-- -->
+		<property name="content" column="content" type="java.lang.String" /><!-- -->
+		<property name="created" column="created" type="java.util.Date" /><!-- 
+			发布时间 -->
+		<many-to-one name="profile" class="Profile" column="uid"
+			insert="false" update="false" lazy="false" not-found="ignore" />
+		<many-to-one name="dog" class="Dog" column="dog_id"
+			insert="false" update="false" lazy="false" not-found="ignore" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,98 @@
+html {
+	font-size: 12px;
+	color: #666;
+}
+body {
+	width: 100%;
+	font-size: 1em;
+	font-family: Microsoft YaHei,STHeiti STXihei,Microsoft JhengHei,Helvetica,Tohoma,Arial;
+	margin: 0px;
+	padding:0px;     
+}
+.all{
+	width:100%;
+}
+.content{
+	height:100%;
+	width:1080px;
+	margin: 0 auto;
+}
+#header {
+	width:100%;
+	font-size: 16px;
+	position: fixed;
+	background: #fff;
+	text-align: center;
+	padding: 0px;
+	margin-top:0;
+	height:80px;
+	Z-index:1000;
+}
+.select01 {
+	padding-top: 80px;
+}
+.inner {
+	margin: 0 auto;
+	width: 1080px;
+	clear: both;
+	padding:0px; 	
+}
+.logo{
+	float: left;
+	width: 176px;
+	height:67px;
+	border:0px solid #666;
+	margin-top:5px;
+	background:url("/assets/img/logo.png");
+}
+.header-menu{
+	float:right;
+	font-size: 16px;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+.menu-list-dh {
+	float: left;
+}
+.ly-prod {
+	height: 70px;
+	line-height: 70px;
+	text-decoration: none;
+	color: #666;
+	margin-left: 42px;
+	display: inline-block;
+	border:0px solid red;
+}
+.banner{
+	height:600px;
+	margin-top:10px;
+}
+.line{
+	height:60px;
+	margin-top:50px;
+	font-size: 40px;
+	font-weight: bold;
+}
+.imglist{
+	margin-top:30px;
+}
+.subject{
+	height:430px;
+}
+.subject_img{
+	width:250px;
+	height:200px;
+	margin:7px 7px 7px 7px;
+}
+.company{
+	height:700px;
+}
+.company_img{
+	width:195px;
+	height:330px;
+	margin:7px 7px 7px 7px;
+}
+.buyer{
+	height:550px;
+}

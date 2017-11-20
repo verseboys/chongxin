@@ -1,0 +1,42 @@
+.message {
+	height: 100px;
+	width: 50%;
+}
+
+.message td {
+	height: 100% !important;
+}
+
+.grid .gridTbody #message td>div {
+	height: 90% !important;
+	text-align: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#avatar {
+	height: 100%;
+	float: left;
+}
+
+#nickname {
+	height: 100%;
+	float: left;
+	margin-left: 10px;
+}
+
+#nickname>div {
+	margin-top: 10px;
+	font-size: 20px !important;
+}
+
+#time {
+	height: 100%;
+	float: right;
+	margin-top: 1.5%;
+}
+
+#time>div {
+	font-size: 16px !important;
+}
+}

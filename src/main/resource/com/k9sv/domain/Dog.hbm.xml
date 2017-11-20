@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping     
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"     
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.k9sv.domain.pojo">
+	<class name="Dog" table="dog" lazy="false" dynamic-update="true"
+		dynamic-insert="true">
+		<cache usage="read-write" />
+		<id name="id" column="id" type="int">
+			<generator class="native"></generator>
+		</id>
+		<property name="categoryId" column="category_id" type="int" /><!-- 
+			种类 -->
+		<property name="blood" column="blood" type="java.lang.String" /><!-- 
+			血统证书 -->
+		<property name="earNo" column="ear_no" type="java.lang.String" /><!-- 
+			血统证书 -->
+		<property name="sex" column="sex" type="int" /><!-- 性别 -->
+		<property name="name" column="name" type="java.lang.String" /><!-- 
+			名称 -->
+		<property name="intro" column="intro" type="java.lang.String" /><!-- 
+			介绍 -->
+		<property name="fatherBlood" column="father_blood" type="java.lang.String" /><!-- 
+			父亲id -->
+		<property name="matherBlood" column="mather_blood" type="java.lang.String" /><!-- 
+			母亲id -->
+		<property name="birthday" column="birthday" type="java.util.Date" /><!-- 
+			生日 -->
+		<property name="avatar" column="avatar" type="java.lang.String" /><!-- 
+			头像 -->
+		<property name="height" column="height" type="java.lang.Float" /><!-- 
+			肩高 -->
+		<property name="weight" column="weight" type="java.lang.Float" /><!-- 
+			体重 -->
+
+		<property name="ownerId" column="owner_id" type="int" /><!-- 所有人 -->
+		<property name="sireId" column="sire_id" type="int" /><!-- 繁殖人 -->
+
+		<property name="status" column="status" type="int" /><!-- 状态 0：在舍，1 
+			销售，2 已售 -->
+
+		<property name="viewed" column="viewed" type="int" /><!-- 访问次数 -->
+		<property name="zan" column="zan" type="int" /><!-- 被赞次数 -->
+		<property name="commentCount" column="comment_count" type="int" /><!-- 
+			评论次数 -->
+		<property name="favoriteCount" column="favorite_count" type="int" /><!-- 
+			收藏次数 -->
+
+		<property name="created" column="created" type="java.util.Date" /><!-- 
+			发布时间 -->
+		<property name="updated" column="updated" type="java.util.Date" /><!-- 
+			发布时间 -->
+		<property name="deleted" column="deleted" type="int" /><!-- 删除 -->
+		<property name="command" column="command" type="int" /><!-- 推荐 
+			1 推荐 2到首页 -->
+		<property name="classify" column="classify" type="int" /><!-- 
+			确认宠物芯片 -->
+		<property name="isok" column="isok" type="int" />
+		<property name="chip" column="chip" type="java.lang.String" />
+		<many-to-one name="owner" class="Profile" column="owner_id"
+			insert="false" update="false" lazy="false" not-found="ignore" />
+		<many-to-one name="category" class="Category" column="category_id"
+			insert="false" update="false" lazy="false" not-found="ignore" />
+		<many-to-one name="sire" class="Profile" column="sire_id"
+			insert="false" update="false" lazy="false" not-found="ignore" />
+	</class>
+</hibernate-mapping>

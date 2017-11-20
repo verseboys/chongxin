@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping default-lazy="false">
+
+	<class name="com.k9sv.domain.pojo.Role" table="role">
+
+		<id name="id" type="int" length="11" unsaved-value="0">
+		  <generator class="native"/>
+		</id>
+		<property name="title" type="string" length="11" not-null="true"/>
+	</class>
+
+</hibernate-mapping>

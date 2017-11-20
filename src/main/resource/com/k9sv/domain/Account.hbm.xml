@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping     
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"     
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.k9sv.domain.pojo">
+	<class name="Account" table="account" lazy="false"
+		dynamic-update="true" dynamic-insert="true">
+		<cache usage="read-write" />
+		<id name="id" column="id" type="int" unsaved-value="null">
+			<generator class="native"></generator>
+		</id>
+		<one-to-one name="profile" class="Profile" cascade="all" outer-join="true" />
+		<property name="username" column="username" type="java.lang.String" />
+		<property name="password" column="password" type="java.lang.String" />
+		<property name="created" column="created" type="java.util.Date" />
+		<property name="deleted" column="deleted" type="int" />
+		<property name="openId" column="open_id" type="java.lang.String" />
+		<property name="unionid" column="unionid" type="java.lang.String" />
+		<property name="clientid" column="clientid" type="java.lang.String" />
+		<property name="platform" column="platform" type="java.lang.String" />
+		<property name="version" column="version" type="java.lang.String" />
+		<property name="systemversion" column="systemversion" type="java.lang.String" />
+		<property name="checked" column="checked" type="int" />
+		<property name="lastLogin" column="lastlogin" type="java.util.Date" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping default-lazy="false">
+
+	<class name="com.k9sv.domain.pojo.Blog" table="blog" dynamic-update="true" dynamic-insert="true">
+
+		<id name="id" type="int" length="11" unsaved-value="0">
+		  <generator class="native"/>
+		</id>
+		<property name="title" type="string" length="50" not-null="true"/>
+		<property name="uid" column="uid" type="int" length="11" not-null="true"/>
+		<property name="type" column="type" type="int" length="11" not-null="true"/>
+		<property name="status" column="status" type="int" length="11" not-null="true"/>
+		<property name="content" column="content" type="java.lang.String" /><!-- 内容 -->
+		<property name="created" column="created" type="java.util.Date" /><!-- 发布时间 -->
+		
+	</class>
+
+</hibernate-mapping>

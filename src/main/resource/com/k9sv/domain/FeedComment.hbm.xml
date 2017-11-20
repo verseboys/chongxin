@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping     
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"     
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.k9sv.domain.pojo">
+	<class name="FeedComment" table="feed_comment" lazy="false"
+		dynamic-update="true" dynamic-insert="true">
+		<cache usage="read-write" />
+		<id name="id" column="id" type="int" unsaved-value="null">
+			<generator class="native"></generator>
+		</id>
+		<property name="uid" column="uid" type="int" />
+		<property name="fid" column="fid" type="int" />
+		<property name="comment" column="comment" type="java.lang.String" />
+		<property name="zan" column="zan" type="int" />
+
+		<property name="created" column="created" type="java.util.Date" />
+		<property name="toUid" column="to_uid" type="int" />
+
+		<many-to-one name="feed" column="fid" class="Feed" insert="false"
+			update="false" lazy="false" outer-join="auto" not-null="true"
+			not-found="ignore"></many-to-one>
+
+		<many-to-one name="profile" column="uid" class="Profile"
+			insert="false" update="false" lazy="false" outer-join="auto"
+			not-null="true" not-found="ignore"></many-to-one>
+
+		<many-to-one name="toProfile" column="to_uid" class="Profile"
+			insert="false" update="false" lazy="false" outer-join="auto"
+			not-null="true" not-found="ignore"></many-to-one>
+
+	</class>
+</hibernate-mapping>

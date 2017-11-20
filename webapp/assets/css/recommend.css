@@ -1,0 +1,63 @@
+body{
+	width: 100%;
+	margin: 0px;
+	padding:0px;
+	font-size:62.5%;
+	background:#F9F9F9;
+}
+.all{
+	width:100%;
+}
+.content{
+	width:90%;
+	margin:0 auto;
+	margin-top:20px;
+}
+.input{
+	height:50px;
+	border:1px solid #cccccc;
+	outline:none;
+	border-radius:0.3em;
+	font-size:1.5em;
+	text-indent:1em;
+}
+.yanzhengma{
+	width:100%;
+	height:50px;
+	margin-top:15px;
+}
+.yanzhengma .input_div{
+	width:55%;
+	float:left;
+}
+.yanzhengma .btn{
+	width:35%;
+	float:right;
+	background:#55c960;
+	color:#FFFFFF;
+	text-align:center;
+	border-radius:0.3em;
+	height:50px;
+	line-height:50px;
+	font-size:1.5em;
+}
+.btn2{
+	width:100%;
+	background:#e95d5c;
+	color:#FFFFFF;
+	text-align:center;
+	border-radius:0.3em;
+	height:50px;
+	line-height:50px;
+	font-size:1.5em;
+	margin-top:15px;
+}
+.friend{
+	width:60%;
+	margin:0 auto;
+	text-align:center;
+	margin-top:20px;
+	font-size:1em;
+	margin-bottom:40px;
+	color:#808080;
+}

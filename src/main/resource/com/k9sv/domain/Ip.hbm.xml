@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping default-lazy="false">
+
+	<class name="com.k9sv.domain.pojo.Ip" table="ip">
+
+		<id name="id" type="int" length="11" unsaved-value="0">
+		  <generator class="native"/>
+		</id>
+		<property name="start_ip" type="double" length="11" not-null="true"/>
+		<property name="end_ip" type="double" length="11" not-null="true"/>
+		<property name="province" type="string" length="30" not-null="true"/>
+		<property name="city" type="string" length="30"/>
+		<property name="isp" type="string" length="30"/>
+		<property name="city_id" type="int" length="11" />
+	</class>
+
+</hibernate-mapping>

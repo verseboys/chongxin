@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping default-lazy="false" package="com.k9sv.domain.pojo">
+
+	<class name="DogPhoto" table="dog_photo" dynamic-update="true"
+		dynamic-insert="true">
+
+		<id name="id" type="int" length="11" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<property name="title" type="string" length="30" />
+		<property name="dogId" type="int" column="dog_id" />
+		<property name="uid" column="uid" type="int" /><!-- 上传人 -->
+		<property name="url" column="url" type="java.lang.String" /><!-- 
+			内容 -->
+		<property name="content" column="content" type="java.lang.String" /><!-- 
+			内容 -->
+		<property name="created" column="created" type="java.util.Date" /><!-- 
+			发布时间 -->
+		<property name="viewed" column="viewed" type="int" /><!-- 浏览次数 -->
+		<property name="replied" column="replied" type="int" /><!-- 评论次数 -->
+		<property name="good" column="good" type="int" /><!-- 赞次数 -->
+
+		<many-to-one name="dog" column="dog_id" class="Dog"
+			insert="false" update="false" not-found="ignore" />
+	</class>
+
+</hibernate-mapping>

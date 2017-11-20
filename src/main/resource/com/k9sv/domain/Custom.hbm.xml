@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+
+	<class name="com.k9sv.domain.pojo.Custom" table="custom" dynamic-update="true" dynamic-insert="true">
+
+		<id name="id" type="int" length="11" unsaved-value="0">
+		  <generator class="native"/>
+		</id>
+		<property name="cname" column="name" type="java.lang.String"  length="50" not-null="true"/>
+		<property name="qq" column="qq" type="java.lang.String" length="50"/>
+		<property name="mobile" column="mobile" type="java.lang.String" length="50"/>
+		<property name="notes" column="notes" type="java.lang.String" length="200"/>
+		<property name="city" column="city" type="java.lang.String" length="50"/>
+		<property name="content" column="content" type="java.lang.String" /><!-- 内容 -->
+		<property name="created" column="created" type="java.util.Date" /><!-- 发布时间 -->
+		<property name="updated" column="updated" type="java.util.Date" /><!-- 修改时间 -->
+		
+	</class>
+
+</hibernate-mapping>
